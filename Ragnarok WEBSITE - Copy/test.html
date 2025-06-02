@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Input Form</title>
+</head>
+<body>
+<big>
+
+    <form id="studentForm">
+        
+        <label for="name">
+            <font color="green">
+                
+                Your Name:
+                
+            </font>
+        </label>
+
+  <input type="text" id="name" name="name" required>
+  
+  <br>
+  <br>
+  
+  <label for="age">
+        <font color="red">
+          Your Age:
+        </font>
+  </label>
+
+
+  <select id="age" name="age" required>
+
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+    </select>
+    
+    <br>
+    <br>
+    
+    <label for="subject">
+        <font color="purple">
+
+            
+            Your Favorite Subject:
+            
+        </font>
+    </label>
+
+    <select id="subject" name="subject" required>
+        <option value="Maths">Maths</option>
+        <option value="science">Science</option>
+        <option value="Social Studies">Social Studies</option>
+        <option value="Artificial intelligence">Artificial intelligence</option>
+        <option value="Hindi">Hindi</option>
+    </select>
+    
+    <br>
+    <br>
+    
+    <label for="sport">
+        <font color="blue">
+
+            Your Favorite Sport:
+
+        </font>
+
+    <br>
+    <br>
+
+    </label>
+    <input type="checkbox" id="sport" name="sport[]" value="football">
+    <label for="sport">Football</label>
+    <br>
+    <input type="checkbox" id="sport" name="sport[]" value="basketball">
+    <label for="sport">Basketball</label>
+    <br>
+    <input type="checkbox" id="sport" name="sport[]" value="tennis">
+    <label for="sport">Tennis</label>
+    <br>
+    <input type="checkbox" id="sport" name="sport[]" value="volleyball">
+    <label for="sport">Volleyball</label>
+    <br>
+    <input type="checkbox" id="sport" name="sport[]" value="Cricket">
+    <label for="sport">Cricket</label>
+    <br>
+    <input type="checkbox" id="sport" name="sport[]" value="chess">
+    <label for="sport">Chess</label>
+    
+    <br>
+    <br>
+    
+    <label for="player">
+        <font color="babypink">
+
+            Favorite Player:
+        </font>
+    </label>
+  <input type="text" id="player" name="player"><br><br>
+  
+  <button type="button" onclick="displayMessage()">Submit</button>
+</form>
+
+<p id="outputMessage"></p>
+</big>
+
+<script>
+
+function displayMessage() {
+  var name = document.getElementById("name").value;
+  var age = document.getElementById("age").value;
+  var subject = document.getElementById("subject").value;
+  var selectedSports = document.querySelectorAll('input[name="sport[]"]:checked');
+  var favoriteSports = Array.from(selectedSports).map(sport => sport.value);
+  var player = document.getElementById("player").value;
+  
+  var message = "Student Information:\n\n\n";
+  message += "Name: " + name + "\n";
+  message += "Age: " + age + "\n";
+  message += "Favorite Subject: " + subject + "\n";
+  message += "Favorite Sports: " + favoriteSports.join(", ") + "\n";
+  message += "Favorite Player: " + player;
+  
+  document.getElementById("outputMessage").textContent = message;
+}
+</script>
+
+</body>
+</html>
